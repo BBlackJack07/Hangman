@@ -15,13 +15,13 @@ bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]
 	bool letterIsOk { false };
 	for(unsigned int i {0}; i < wordDoc.size(); ++i)
 	{
-		if(toupper(wordEntry[0]) == wordDoc[i])
+		if(toupper(wordEntry[0]) == toupper(wordDoc[i]))
 		{
-			std::cout << wordDoc[i] << " ";
 			lettresTrouvees[i] = wordDoc[i];
-			return true;
+			std::cout << wordDoc[i] << " ";
+			letterIsOk = true;
 		}
-		else if(lettresTrouvees[i] == wordDoc[i])
+		else if(toupper(lettresTrouvees[i]) == toupper(wordDoc[i]))
 		{
 			std::cout << wordDoc[i] << " ";
 		}

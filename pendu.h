@@ -19,12 +19,11 @@ std::vector<T>& operator<<(std::vector<T>& vec, std::ifstream& doc)
 template<typename T>
 T randomVector(std::vector<T> vec)
 {
-	std::uniform_int_distribution<unsigned int> dis(0, vec.size() - 1);
-	auto const seed = std::time(nullptr);
-	std::default_random_engine engine { seed };
+	std::mt19937 engine(std::chrono::system_clock::now().time_since_epoch().count());
+	std::uniform_int_distribution<int> dis(0,vec.size()-1);
 	return vec[dis(engine)];
 }
 
 bool isEqual(std::string wordEntry, std::string wordDoc);
 
-bool isEqual(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]);
+bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]);

@@ -1,24 +1,74 @@
 #include "pendu.h"
 
-using namespace std;
-
 int main()
 {
-	fstream doc("./dico");
+	std::cout << " Bonjour !\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;   
+	std::ifstream doc("./dico");
 	if(doc)
 	{
-		vector<string> wordList {};
+		std::vector<std::string> wordList {};
 		wordList << doc;
 		doc.close();
 		bool replay { true };
 		
 		do
 		{
-			const string mot { randomVector(wordList) };
+			const std::string mot { randomVector(wordList) };
+			for(unsigned int i {0}; i < mot.size(); ++i)
+				std::cout << "_ ";
+			std::cout << std::endl;
+			bool win { false };
+			unsigned short int life { 10 };
+			char lettresTrouvees[mot.size()];
+			while(life > 0 && !win)
+			{
+				std::string wordInput {};
+				std::cin >> wordInput;
+				std::cout << std::endl;
+				if(isEqual(wordInput, mot))
+				{ 	
+					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;;
+					win = true;
+				}
+				else if(letterOk(wordInput, mot, lettresTrouvees))
+				{
+					std::cout << " Bien joué, vous avez-trouvé une lettre ! " << std::endl;
+				}
+				else
+				{
+					life--;
+					std::cout << std::endl << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
+				}
+				
+			}
+			
+			if(!win)
+			{
+				std::cout << " Dommage, vous avez perdu. Le mot était : " << mot << std::endl;
+			}
+			
+			std::cout << " Voulez-vous rejouer ? (o/n)" << std::endl;
+			std::string r {};
+			std::cin >> r;
+			switch(r[0])
+			{
+				case 'o':
+					std::cout << " Cool !" << std::endl;
+					break;
+				case 'n':
+					std::cout << " Au revoir !" << std::endl;
+					replay = false;
+					break;
+			}
+			
 		}while(replay);
 		
 	}
 	else
 	{
-		cout << "Erreur lors de l'ouverture du fichier." << endl;
+		std::cout << "Erreur lors de l'ouverture du fichier." << std::endl;
 	}
+
+	return 0;
+}
+
