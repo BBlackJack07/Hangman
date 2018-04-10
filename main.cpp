@@ -37,7 +37,7 @@ int main()
 				else
 				{
 					life--;
-					std::cout << std::endl << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
+					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
 				
 			}
