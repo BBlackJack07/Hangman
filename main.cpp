@@ -22,7 +22,7 @@ int main()
 			char lettresTrouvees[mot.size()];
 			while(life > 0 && !win)
 			{
-				std::cout << "Entrer une lettre ou un mot : ";
+				std::cout << "Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
 				std::cout << std::endl;
@@ -33,7 +33,7 @@ int main()
 				}
 				else if(letterOk(wordInput, mot, lettresTrouvees))
 				{
-					std::cout << " Bien joué, vous avez-trouvé une lettre ! " << std::endl << std::endl;
+					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl << std::endl;
 				}
 				else
 				{
