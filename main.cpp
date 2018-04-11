@@ -16,28 +16,29 @@ int main()
 			const std::string mot { randomVector(wordList) };
 			for(unsigned int i {0}; i < mot.size(); ++i)
 				std::cout << "_ ";
-			std::cout << std::endl;
+			std::cout << std::endl << std::endl;
 			bool win { false };
 			unsigned short int life { 10 };
 			char lettresTrouvees[mot.size()];
 			while(life > 0 && !win)
 			{
+				std::cout << "Entrer une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
 				std::cout << std::endl;
 				if(isEqual(wordInput, mot))
 				{ 	
-					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;;
+					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
 					win = true;
 				}
 				else if(letterOk(wordInput, mot, lettresTrouvees))
 				{
-					std::cout << " Bien joué, vous avez-trouvé une lettre ! " << std::endl;
+					std::cout << " Bien joué, vous avez-trouvé une lettre ! " << std::endl << std::endl;
 				}
 				else
 				{
 					life--;
-					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
+					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl << std::endl;
 				}
 				
 			}
