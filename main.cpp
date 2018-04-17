@@ -2,7 +2,7 @@
 
 int main()
 {
-	std::cout << " Bonjour !\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;   
+	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;   
 	std::ifstream doc("./wordlist");
 	if(doc)
 	{
