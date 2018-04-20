@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include <chrono>
+#include <random>
 
 template<typename T>
 std::vector<T>& operator<<(std::vector<T>& vec, std::ifstream& doc)
