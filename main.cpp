@@ -38,6 +38,7 @@ int main()
 				else
 				{
 					life--;
+					showPendu(life);
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl << std::endl;
 				}
 				
