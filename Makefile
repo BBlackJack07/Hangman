@@ -1,2 +1,2 @@
-pendu.out : main.cpp pendu.cpp pendu.h
-	g++ *.cpp *.h -o pendu.out -std=c++17
+pendu.out : sources/*.cpp headers/*.h
+	g++ sources/*.cpp headers/*.h -o pendu.out -std=c++17
