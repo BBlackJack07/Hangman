@@ -3,9 +3,9 @@ Ceci est un Jeu du Pendu programmé en C++, le programme lit chaque ligne du fic
 
 
 Sous GNU/Linux vous pouvez télécharger et compiler ce jeu du pendu grâce aux commandes suivantes : 
-	sudo apt-get install git
-	sudo apt-get install build-essential
-	git clone https://github.com/BBlackJack07/pendu.git
-	cd pendu
-	make
+	sudo apt-get install git  
+	sudo apt-get install build-essential  
+	git clone https://github.com/BBlackJack07/pendu.git  
+	cd pendu  
+	make  
 Ceci créera un éxécutable sous le nom de "pendu.out" dans le répertoire courant.
