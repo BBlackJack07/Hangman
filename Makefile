@@ -9,6 +9,3 @@ install : all
 
 uninstall : 
 	rm -rvf ..jeu_du_pendu/
-
-clean : 
-	rm -vf pendu.out
