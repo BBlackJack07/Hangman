@@ -1,4 +1,4 @@
-#include "pendu.h"
+#include "fonctions_pendu.h"
 
 int main()
 {
