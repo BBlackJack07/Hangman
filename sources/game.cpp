@@ -1,8 +1,13 @@
 #include "fonctions_pendu.h"
+#include <cstdlib>
+#include <ctime>
+
+void sleep(int seconds);
 
 int main()
 {
 	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
+	sleep(2);
 	std::ifstream doc("./wordlist");
 	if(doc)
 	{
@@ -21,8 +26,8 @@ int main()
 
 			while(life > 0 && !win)
 			{
-				std::cout << "\n\n\n\n" << "----------Round " << round << "----------" << std::endl;
-				std::cout << showHideWord(mot, lettresTrouvees) << std::endl;
+				std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
+				std::cout << " " << showHideWord(mot, lettresTrouvees) << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
@@ -46,8 +51,9 @@ int main()
 					//showPendu(life);
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
+				sleep(2);
 				round++;
-				std::cout << "--------------------\n" << std::endl;
+				std::cout << "--------------------" << std::endl;
 
 			}
 
@@ -83,5 +89,17 @@ int main()
 	}
 
 	return 0;
+}
+
+void sleep(int seconds) {
+    /* Init. */
+    time_t start_time = 0;
+    time_t current_time = 0;
+ 
+    /* Operate. */
+    start_time = time(NULL);
+    while(current_time-start_time+1 <= seconds) {
+        current_time = time(NULL);
+    }
 }
 
