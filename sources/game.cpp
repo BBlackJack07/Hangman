@@ -22,7 +22,7 @@ int main()
 			while(life > 0 && !win)
 			{
 				std::cout << "\n\n\n\n" << "----------Round " << round << "----------" << std::endl;
-				std::cout << showHideWord(mot, lettresTrouvees) << std::endl;
+				std::cout << " " << showHideWord(mot, lettresTrouvees) << std::endl << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
