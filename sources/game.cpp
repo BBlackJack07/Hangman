@@ -1,8 +1,8 @@
-#include "fonctions_pendu.h"
+#include "../headers/fonctions_pendu.h"
 
 int main()
 {
-	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;   
+	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
 	std::ifstream doc("./wordlist");
 	if(doc)
 	{
@@ -10,7 +10,7 @@ int main()
 		wordList << doc;
 		doc.close();
 		bool replay { true };
-		
+
 		do
 		{
 			const std::string mot { randomVector(wordList) };
@@ -27,7 +27,7 @@ int main()
 				std::cin >> wordInput;
 				std::cout << std::endl;
 				if(isEqual(wordInput, mot))
-				{ 	
+				{
 					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
 					win = true;
 				}
@@ -41,14 +41,14 @@ int main()
 					//showPendu(life);
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl << std::endl;
 				}
-				
+
 			}
-			
+
 			if(!win)
 			{
 				std::cout << " Dommage, vous avez perdu. Le mot était : " << mot << std::endl;
 			}
-			
+
 			std::cout << " Voulez-vous rejouer ? (o/n)" << std::endl;
 			std::string r {};
 			std::cin >> r;
@@ -62,9 +62,9 @@ int main()
 					replay = false;
 					break;
 			}
-			
+
 		}while(replay);
-		
+
 	}
 	else
 	{
