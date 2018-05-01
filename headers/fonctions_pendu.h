@@ -30,3 +30,5 @@ bool isEqual(std::string wordEntry, std::string wordDoc);
 bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]);
 
 bool findAll(std::string wordDoc, char lettresTrouvees[]);
+
+std::string showHideWord(std::string wordDoc, char lettresTrouvees[]);

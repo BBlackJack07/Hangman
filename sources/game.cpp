@@ -13,30 +13,30 @@ int main()
 
 		do
 		{
-			const std::string mot { randomVector(wordList) };
-			for(unsigned int i {0}; i < mot.size(); ++i)
-				std::cout << "_ ";
-			std::cout << std::endl << std::endl;
-			bool win { false };
-			unsigned short int life { 10 };
-			char lettresTrouvees[mot.size()];
+			const std::string  mot   { randomVector(wordList) };
+			bool               win   { false };
+			unsigned short int life  { 10 };
+			char               lettresTrouvees[mot.size()];
+			unsigned int       round { 1 };
+
 			while(life > 0 && !win)
 			{
-				std::cout << "Entrez une lettre ou un mot : ";
+				std::cout << "\n\n\n\n" << "----------Round " << round << "----------" << std::endl;
+				std::cout << showHideWord(mot, lettresTrouvees) << std::endl;
+				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
-				std::cout << std::endl;
 				if(isEqual(wordInput, mot))
 				{
-					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
+					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 					win = true;
 				}	
 				else if(wordInput.size() == 1 && letterOk(wordInput, mot, lettresTrouvees))
 				{
-					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl << std::endl;
+					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl;
 					if(findAll(mot, lettresTrouvees))
 					{
-						std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
+						std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 						win = true;
 					}
 				}
@@ -44,14 +44,20 @@ int main()
 				{
 					life--;
 					//showPendu(life);
-					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl << std::endl;
+					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
+				round++;
+				std::cout << "--------------------\n" << std::endl;
 
 			}
 
 			if(!win)
 			{
 				std::cout << " Dommage, vous avez perdu. Le mot était : " << mot << std::endl;
+			}
+			else
+			{
+				std::cout << " Vous avez gagné !" << std::endl;
 			}
 
 			std::cout << " Voulez-vous rejouer ? (o/n)" << std::endl;

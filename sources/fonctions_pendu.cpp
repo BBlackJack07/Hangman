@@ -18,15 +18,24 @@ bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]
 		if(toupper(wordEntry[0]) == toupper(wordDoc[i]))
 		{
 			lettresTrouvees[i] = wordDoc[i];
-			std::cout << wordDoc[i] << " ";
+			
 			letterIsOk = true;
 		}
-		else if(toupper(lettresTrouvees[i]) == toupper(wordDoc[i]))
-		{
-			std::cout << wordDoc[i] << " ";
-		}
-		else
-			std::cout << "_ ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 	return letterIsOk;
 }
@@ -42,3 +51,23 @@ bool findAll(std::string wordDoc, char lettresTrouvees[])
 	}
 	return true;
 }
+
+std::string showHideWord(std::string wordDoc, char lettresTrouvees[])
+{
+	std::string hideWord {};
+
+	for(unsigned int i {0}; i < wordDoc.size(); ++i)
+	{
+		if(toupper(lettresTrouvees[i]) == toupper(wordDoc[i]))
+		{
+			hideWord += wordDoc[i];
+			hideWord += " ";
+		}
+		else
+		{
+			hideWord += "_ ";
+		}
+	}
+	return hideWord;
+}
+
