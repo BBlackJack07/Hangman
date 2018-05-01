@@ -21,7 +21,7 @@ int main()
 
 			while(life > 0 && !win)
 			{
-				std::cout << "\n\n\n\n" << "----------Round " << round << "----------" << std::endl;
+				std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
 				std::cout << " " << showHideWord(mot, lettresTrouvees) << std::endl << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
@@ -47,7 +47,7 @@ int main()
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
 				round++;
-				std::cout << "--------------------\n" << std::endl;
+				std::cout << "--------------------" << std::endl;
 
 			}
 
