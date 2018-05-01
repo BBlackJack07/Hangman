@@ -1,4 +1,4 @@
-#include "../headers/fonctions_pendu.h"
+#include "fonctions_pendu.h"
 
 int main()
 {
