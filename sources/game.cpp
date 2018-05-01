@@ -28,9 +28,16 @@ int main()
 				std::cout << std::endl;
 				if(isEqual(wordInput, mot))
 				{
+					std::cout << mot << std::endl;
 					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
 					win = true;
 				}
+				else if(findAll(mot, lettresTrouvees))
+				{
+					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
+					win = true;
+					std::cout << mot << std::endl;
+				}	
 				else if(wordInput.size() == 1 && letterOk(wordInput, mot, lettresTrouvees))
 				{
 					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl << std::endl;
