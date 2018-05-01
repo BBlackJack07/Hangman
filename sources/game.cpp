@@ -31,7 +31,7 @@ int main()
 					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl << std::endl;
 					win = true;
 				}
-				else if(letterOk(wordInput, mot, lettresTrouvees))
+				else if(wordInput.lenght() == 1 && letterOk(wordInput, mot, lettresTrouvees))
 				{
 					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl << std::endl;
 				}
