@@ -36,7 +36,9 @@ bool findAll(std::string wordDoc, char lettresTrouvees[])
 	for(unsigned short i {0}; i < wordDoc.size(); ++i)
 	{
 		if(toupper(wordDoc[i]) != toupper(lettresTrouvees[i]))
+		{
 			return false;
+		}
 	}
 	return true;
 }
