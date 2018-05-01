@@ -1,4 +1,5 @@
 pendu.out
+Makefile
 CMake*
 *.cbp
 cmake*

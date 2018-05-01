@@ -11,5 +11,5 @@ install : all
 	cp wordlist ../jeu_du_pendu
 	echo 'Jeu Du Pendu installé dans le répertoire ../jeu_du_pendu'
 
-uninstall : 
-rm -rvf ../jeu_du_pendu/
+uninstall :
+	rm -rvf ../jeu_du_pendu/
