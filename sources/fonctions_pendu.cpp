@@ -1,50 +1,35 @@
 #include "fonctions_pendu.h"
 
 
-bool isEqual(std::string wordEntry, std::string wordDoc)
+bool wordIsEqual(std::string wordInput, std::string hideWord)
 {
-	std::string word1 { wordEntry };
-	std::string word2 {  wordDoc  };
+	std::string word1 { wordInput };
+	std::string word2 {  hideWord  };
 	std::transform(word1.begin(), word1.end(), word1.begin(), ::toupper);
 	std::transform(word2.begin(), word2.end(), word2.begin(), ::toupper);
 	return word1 == word2;
 }
 
-bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[])
+bool letterIsEqual(std::string wordInput, std::string hideWord, std::vector<char> findLetters)
 {
-	bool letterIsOk { false };
-	for(unsigned int i {0}; i < wordDoc.size(); ++i)
+	bool letterEqual { false };
+	for(unsigned short int i {0}; i < hideWord.size(); ++i)
 	{
-		if(toupper(wordEntry[0]) == toupper(wordDoc[i]))
+		if(toupper(wordInput[0]) == toupper(hideWord[i]))
 		{
-			lettresTrouvees[i] = wordDoc[i];
+			findLetters[i] = hideWord[i];
 			
-			letterIsOk = true;
+			letterEqual = true;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
-	return letterIsOk;
+	return letterEqual;
 }
 
-bool findAll(std::string wordDoc, char lettresTrouvees[])
+bool findAll(std::string hideWord, char findLetters[])
 {
-	for(unsigned short i {0}; i < wordDoc.size(); ++i)
+	for(unsigned short int i {0}; i < hideWord.size(); ++i)
 	{
-		if(toupper(wordDoc[i]) != toupper(lettresTrouvees[i]))
+		if(toupper(hideWord[i]) != toupper(findLetters[i]))
 		{
 			return false;
 		}
@@ -52,22 +37,22 @@ bool findAll(std::string wordDoc, char lettresTrouvees[])
 	return true;
 }
 
-std::string showHideWord(std::string wordDoc, char lettresTrouvees[])
+std::string showHideWord(std::string hideWord, char findLetters[])
 {
-	std::string hideWord {};
+	std::string showWord {};
 
-	for(unsigned int i {0}; i < wordDoc.size(); ++i)
+	for(unsigned int i {0}; i < hideWord.size(); ++i)
 	{
-		if(toupper(lettresTrouvees[i]) == toupper(wordDoc[i]))
+		if(toupper(findLetters[i]) == toupper(hideWord[i]))
 		{
-			hideWord += wordDoc[i];
-			hideWord += " ";
+			showWord += hideWord[i];
+			showWord += " ";
 		}
 		else
 		{
-			hideWord += "_ ";
+			showWord += "_ ";
 		}
 	}
-	return hideWord;
+	return showWord;
 }
 

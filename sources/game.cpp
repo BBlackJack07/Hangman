@@ -16,28 +16,28 @@ int main()
 
 		do
 		{
-			const std::string  mot   { randomVector(wordList) };
-			bool               win   { false };
-			unsigned short int life  { 10 };
-			char               lettresTrouvees[mot.size()];
-			unsigned int       round { 1 };
+			const std::string  hideWord    { randomVector(wordList) };
+			bool               win         { false };
+			unsigned short int life        { 10 };
+			unsigned int       round       { 1 };
+			std::vector<char>  findLetters { mot.size() };
 
 			while(life > 0 && !win)
 			{
 				std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
-				std::cout << " " << showHideWord(mot, lettresTrouvees) << std::endl << std::endl;
+				std::cout << " " << showHideWord(mot, findLetters) << std::endl << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
-				if(isEqual(wordInput, mot))
+				if(wordIsEqual(wordInput, hideWord))
 				{
 					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 					win = true;
 				}	
-				else if(wordInput.size() == 1 && letterOk(wordInput, mot, lettresTrouvees))
+				else if(wordInput.size() == 1 && letterIsEqual(wordInput, hideWord, findLetters))
 				{
 					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl;
-					if(findAll(mot, lettresTrouvees))
+					if(findAll(hideWord, findLetters))
 					{
 						std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 						win = true;
@@ -57,7 +57,7 @@ int main()
 
 			if(!win)
 			{
-				std::cout << " Dommage, vous avez perdu. Le mot était : " << mot << std::endl;
+				std::cout << " Dommage, vous avez perdu. Le mot était : " << hideWord << std::endl;
 			}
 			else
 			{

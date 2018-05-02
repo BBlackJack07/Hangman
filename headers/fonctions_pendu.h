@@ -1,3 +1,6 @@
+#ifndef FONCTIONS_PENDU
+#define FONCTIONS_PENDU
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -25,10 +28,13 @@ T randomVector(std::vector<T> vec)
 	return vec[dis(engine)];
 }
 
-bool isEqual(std::string wordEntry, std::string wordDoc);
+bool isEqual(std::string wordInput, std::string hideWord);
 
-bool letterOk(std::string wordEntry, std::string wordDoc, char lettresTrouvees[]);
+bool letterOk(std::string wordInput, std::string hideWord, std::vector<char> findLetters);
 
-bool findAll(std::string wordDoc, char lettresTrouvees[]);
+bool findAll(std::string hideWord, std::vector<char> findLetters);
 
-std::string showHideWord(std::string wordDoc, char lettresTrouvees[]);
+std::string showHideWord(std::string hideWord, std::vector<char> findLetters);
+
+#endif //FONCTIONS_PENDU
+
