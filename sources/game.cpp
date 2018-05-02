@@ -4,40 +4,49 @@
 int main()
 {
 	using namespace std::chrono_literals;
-	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
-	std::this_thread::sleep_for(2000ms);
+	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !" << std::endl;;
+	std::this_thread::sleep_for(1000ms);
+	std::cout << " Règles : " << std::endl; 
+	std::this_thread::sleep_for(1000ms);
+	std::cout << " - Vous avez dix vies." << std::endl;
+	std::this_thread::sleep_for(1000ms);
+	std::cout << " - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
+	std::this_thread::sleep_for(1000ms);
 	std::ifstream doc("./wordlist");
 	if(doc)
 	{
 		std::vector<std::string> wordList {};
-		wordList << doc;
+		{
+			using namespace hangman;
+			wordList << doc;
+		}
 		doc.close();
 		bool replay { true };
 
 		do
 		{
-			const std::string  hideWord    { randomVector(wordList) };
+			const std::string  hideWord    { hangman::randomVector(wordList) };
 			bool               win         { false };
 			unsigned short int life        { 10 };
 			unsigned int       round       { 1 };
-			std::vector<char>  findLetters { mot.size() };
+			std::vector<char>  findLetters(hideWord.size());
 
 			while(life > 0 && !win)
 			{
 				std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
-				std::cout << " " << showHideWord(mot, findLetters) << std::endl << std::endl;
+				std::cout << " " << hangman::showHideWord(hideWord, findLetters) << std::endl << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
 				std::string wordInput {};
 				std::cin >> wordInput;
-				if(wordIsEqual(wordInput, hideWord))
+				if(hangman::wordIsEqual(wordInput, hideWord))
 				{
 					std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 					win = true;
 				}	
-				else if(wordInput.size() == 1 && letterIsEqual(wordInput, hideWord, findLetters))
+				else if(wordInput.size() == 1 && hangman::letterIsEqual(wordInput, hideWord, findLetters))
 				{
 					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl;
-					if(findAll(hideWord, findLetters))
+					if(hangman::findAll(hideWord, findLetters))
 					{
 						std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
 						win = true;
@@ -49,7 +58,7 @@ int main()
 					//showPendu(life);
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
-				std::this_thread::sleep_for(2000ms);
+				std::this_thread::sleep_for(1500ms);
 				round++;
 				std::cout << "--------------------" << std::endl;
 

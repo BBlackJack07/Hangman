@@ -1,7 +1,7 @@
 #include "fonctions_pendu.h"
 
 
-bool wordIsEqual(std::string wordInput, std::string hideWord)
+bool hangman::wordIsEqual(std::string wordInput, std::string hideWord)
 {
 	std::string word1 { wordInput };
 	std::string word2 {  hideWord  };
@@ -10,7 +10,7 @@ bool wordIsEqual(std::string wordInput, std::string hideWord)
 	return word1 == word2;
 }
 
-bool letterIsEqual(std::string wordInput, std::string hideWord, std::vector<char> findLetters)
+bool hangman::letterIsEqual(std::string wordInput, std::string hideWord, std::vector<char>& findLetters)
 {
 	bool letterEqual { false };
 	for(unsigned short int i {0}; i < hideWord.size(); ++i)
@@ -25,7 +25,7 @@ bool letterIsEqual(std::string wordInput, std::string hideWord, std::vector<char
 	return letterEqual;
 }
 
-bool findAll(std::string hideWord, char findLetters[])
+bool hangman::findAll(std::string hideWord, std::vector<char>& findLetters)
 {
 	for(unsigned short int i {0}; i < hideWord.size(); ++i)
 	{
@@ -37,7 +37,7 @@ bool findAll(std::string hideWord, char findLetters[])
 	return true;
 }
 
-std::string showHideWord(std::string hideWord, char findLetters[])
+std::string hangman::showHideWord(std::string hideWord, std::vector<char>& findLetters)
 {
 	std::string showWord {};
 
