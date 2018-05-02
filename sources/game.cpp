@@ -1,13 +1,11 @@
 #include "fonctions_pendu.h"
-#include <cstdlib>
-#include <ctime>
-
-void sleep(int seconds);
+#include <thread>
 
 int main()
 {
+	using namespace std::chrono_literals;
 	std::cout << " Bonjour,\n Bienvenue dans le Jeu du Pendu !\n Règles : \n  - Vous avez dix vies.\n  - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
-	sleep(2);
+	std::this_thread::sleep_for(2000ms);
 	std::ifstream doc("./wordlist");
 	if(doc)
 	{
@@ -51,7 +49,7 @@ int main()
 					//showPendu(life);
 					std::cout << " Zut... vous vous êtes trompé. Il vous reste " << life << " vies." << std::endl;
 				}
-				sleep(2);
+				std::this_thread::sleep_for(2000ms);
 				round++;
 				std::cout << "--------------------" << std::endl;
 
@@ -89,17 +87,5 @@ int main()
 	}
 
 	return 0;
-}
-
-void sleep(int seconds) {
-    /* Init. */
-    time_t start_time = 0;
-    time_t current_time = 0;
- 
-    /* Operate. */
-    start_time = time(NULL);
-    while(current_time-start_time+1 <= seconds) {
-        current_time = time(NULL);
-    }
 }
 
