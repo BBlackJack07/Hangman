@@ -1,5 +1,5 @@
-#ifndef FONCTIONS_PENDU
-#define FONCTIONS_PENDU
+#ifndef FUNCTIONS_HANGMAN
+#define FUNCTIONS_HANGMAN
 
 #include <iostream>
 #include <algorithm>
@@ -39,5 +39,5 @@ namespace hangman {
 	std::string showHideWord(std::string hideWord, std::vector<char>& findLetters);
 }
 
-#endif //FONCTIONS_PENDU
+#endif //FUNCTIONS_HANGMAN
 

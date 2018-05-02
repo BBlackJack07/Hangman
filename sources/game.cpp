@@ -1,4 +1,4 @@
-#include "fonctions_pendu.h"
+#include "functions_hangman.h"
 #include <thread>
 
 int main()
