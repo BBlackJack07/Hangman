@@ -3,7 +3,7 @@
 .SUFFIXES:
 
 all : sources/*.cpp headers/*.h
-	g++ sources/*.cpp headers/*.h -I headers -Wall -Wextra -o pendu.out -std=c++17
+	g++ sources/*.cpp headers/*.h -I headers -Wall -Wextra -pedantic -o pendu.out -std=c++17
 
 install : all
 	mkdir ../jeu_du_pendu
