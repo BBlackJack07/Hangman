@@ -48,7 +48,7 @@ int main()
 					std::cout << " Bien joué, vous avez trouvé une lettre ! " << std::endl;
 					if(hangman::findAll(hideWord, findLetters))
 					{
-						std::cout << " Génial ! Vous avez trouvé le mot !" << std::endl;
+						std::cout << " Génial ! Vous avez trouvé le mot ( " << hideWord  << " ) !" << std::endl;
 						win = true;
 					}
 				}
