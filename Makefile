@@ -2,7 +2,7 @@
 
 .SUFFIXES:
 
-all : sources/*.cpp headers/*.h
+all : sources/*.cpp headers/*.hpp
 	g++ sources/*.cpp headers/*.h -I headers -Wall -Wextra -pedantic -o pendu.out -std=c++17
 
 debug : sources/*.cpp headers/*.h
