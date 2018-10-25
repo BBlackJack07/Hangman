@@ -1,4 +1,4 @@
-#include "functions_hangman.h"
+#include "functions_hangman.hpp"
 
 
 bool hangman::wordIsEqual(std::string wordInput, std::string hideWord)
