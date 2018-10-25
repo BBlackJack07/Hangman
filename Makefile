@@ -3,10 +3,10 @@
 .SUFFIXES:
 
 all : sources/*.cpp headers/*.hpp
-	g++ sources/*.cpp headers/*.h -I headers -Wall -Wextra -pedantic -o pendu.out -std=c++17
+	g++ sources/*.cpp headers/*.hpp -I headers -Wall -Wextra -pedantic -o pendu.out -std=c++17
 
-debug : sources/*.cpp headers/*.h
-	g++ sources/*.cpp headers/*.h -I headers -Wall -Wextra -pedantic -g -o pendu.out -std=c++17
+debug : sources/*.cpp headers/*.hpp
+	g++ sources/*.cpp headers/*.hpp -I headers -Wall -Wextra -pedantic -g -o pendu.out -std=c++17
 
 install : all
 	mkdir ../jeu_du_pendu
