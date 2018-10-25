@@ -1,4 +1,5 @@
 #include "functions_hangman.h"
+#include "vector.hpp"
 #include <thread>
 
 int main()
@@ -25,7 +26,7 @@ int main()
 
 		do
 		{
-			const std::string  hideWord    { hangman::randomVector(wordList) };
+			const std::string  hideWord    { selectRandomInVector(wordList) };
 			bool               win         { false };
 			unsigned short int life        { 10 };
 			unsigned int       round       { 1 };
