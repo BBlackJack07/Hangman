@@ -1,4 +1,4 @@
-#include "functions_hangman.h"
+#include "functions_hangman.hpp"
 #include "vector.hpp"
 #include <thread>
 
