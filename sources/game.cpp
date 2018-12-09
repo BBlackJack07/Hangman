@@ -26,7 +26,7 @@ int main()
 
 		do
 		{
-			const std::string  hideWord    { selectRandomInVector(wordList) };
+			const std::string  hideWord    { getRandom(wordList) };
 			bool               win         { false };
 			unsigned short int life        { 10 };
 			unsigned int       round       { 1 };

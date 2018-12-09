@@ -88,7 +88,7 @@ std::ostream& pprint(std::ostream& out, Iterator begin, Iterator end, std::strin
 }
 
 template<typename T>
-T selectRandom(std::vector<T> vec)
+T getRandom(std::vector<T> vec)
 {
     /*
         This function take one argument : std::vector<T> vec
