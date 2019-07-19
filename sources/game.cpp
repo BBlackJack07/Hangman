@@ -33,7 +33,8 @@ int main()
 			std::vector<char>  findLetters(hideWord.size());
 
 			while(life > 0 && !win)
-			{
+			{   
+                std::cout << "\033[H\033[2J";std::cout.flush();
 				std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
 				std::cout << " " << hangman::showHideWord(hideWord, findLetters) << std::endl << std::endl;
 				std::cout << " Entrez une lettre ou un mot : ";
