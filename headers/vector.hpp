@@ -28,6 +28,21 @@
 #include <iterator>
 
 template<typename T>
+bool operator==(std::vector<T>& vec, T& something)
+{
+    for (T element: vec)
+       if (element == something) return true;
+    return false;
+}
+
+template<typename T>
+bool operator!=(std::vector<T>& vec, T& something)
+{
+    if (vec == something) return false;
+    return true;
+}
+
+template<typename T>
 std::vector<T>& operator<<(std::vector<T>& vec, std::ifstream& doc)
 {
     /*
@@ -88,7 +103,7 @@ std::ostream& pprint(std::ostream& out, Iterator begin, Iterator end, std::strin
 }
 
 template<typename T>
-T getRandom(std::vector<T> vec)
+T getRandomElement(std::vector<T> vec)
 {
     /*
         This function take one argument : std::vector<T> vec
