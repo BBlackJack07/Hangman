@@ -14,6 +14,8 @@ void Hangman::start_game()
 {
     word = getRandomElement(wordlist);
     errors = 0;
+    win = false;
+    foundLetters.clear();
     std::transform(word.begin(), word.end(), word.begin(), ::toupper);
     unsigned short int round {1};
     while(errors < 9 && !win)
