@@ -1,7 +1,6 @@
 #ifndef HANGMAN
 #define HANGMAN
 
-#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <string>

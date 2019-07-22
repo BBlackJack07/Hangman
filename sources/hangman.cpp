@@ -21,7 +21,7 @@ void Hangman::start_game()
     while(errors < 9 && !win)
     {   
         std::cout << "\033[H\033[2J";std::cout.flush();
-        std::cout << drawHangman() << std::endl;
+        std::cout << std::endl << drawHangman() << std::endl;
         std::cout << "\n\n\n" << "----------Round " << round << "----------" << std::endl;
         std::cout << " " << showWord() << std::endl << std::endl;
         std::cout << " Entrez une lettre ou un mot : ";
@@ -119,32 +119,32 @@ std::string Hangman::drawHangman()
     switch (this->errors)
     {
         case 1:
-            return "____";
+            return "_____";
         case 2:
-            return "|\n|\n|\n|____";
+            return "|\n|\n|\n|_____";
         case 3:
-            return "_________\n|\n|\n|\n|____";
+            return "__________\n|\n|\n|\n|_____";
         case 4:
-            return "_________\n|/\n|\n|\n|____";
+            return "__________\n|/\n|\n|\n|_____";
         case 5:
-            return "_________\n|/      |\n|       |\n|\n|____";
+            return "__________\n|/       |\n|        |\n|\n|_____";
         case 6:
-            return "_________\n|/      |\n|       |\n|       O\n|____";
+            return "__________\n|/       |\n|        |\n|        O\n|_____";
         case 7:
-            return "_________\n|/      |\n|       |\n|       O\n|____   |\n        |";
+            return "__________\n|/       |\n|        |\n|        O\n|_____   |\n         |";
         case 8:
-            return "_________\n|/      |\n|       |\n|       O\n|____  \\|/\n        |";
+            return "__________\n|/       |\n|        |\n|        O\n|_____  \\|/\n         |";
         case 9:
-            return "_________\n|/      |\n|       |\n|       O\n|____  \\|/\n        |\n       ( )";
+            return "__________\n|/       |\n|        |\n|        O\n|_____  \\|/\n         |\n        ( )";
         default:
             return "";
-        /*_________
-          |/      |
-          |       |
-          |       O
-          |____  \|/
-                  |
-                 ( )*/
+        /*__________
+          |/       |
+          |        |
+          |        O
+          |_____  \|/
+                   |
+                  ( )*/
     }
 }
 
