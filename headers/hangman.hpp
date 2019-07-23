@@ -22,6 +22,7 @@ class Hangman
 
     private:
         std::vector<char> foundLetters;
+        std::vector<char> triedLetters;
         std::string word;
         unsigned short int errors;
         std::vector<std::string> wordlist;
