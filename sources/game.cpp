@@ -1,5 +1,4 @@
 #include "hangman.hpp"
-#include <thread>
 
 int main()
 {
@@ -9,10 +8,10 @@ int main()
         std::this_thread::sleep_for(1000ms);
         std::cout << " Règles : " << std::endl; 
         std::this_thread::sleep_for(1000ms);
-        std::cout << " - Vous avez dix vies." << std::endl;
-        std::this_thread::sleep_for(1000ms);
+        std::cout << " - Vous avez le droit à 9 erreurs." << std::endl;
+        std::this_thread::sleep_for(1500ms);
         std::cout << " - Ecrivez tous les mots et lettres sans accents.\n" << std::endl;
-        std::this_thread::sleep_for(1000ms);
+        std::this_thread::sleep_for(1500ms);
     }
     
     bool replay { true };
