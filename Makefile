@@ -1,19 +1,22 @@
-.PHONY: uninstall
+CC=g++
+CXXFLAGS= -std=c++17 -Wall -O2 -march=native -I headers -c
+LDFLAGS=
+HEADERS=headers/*.hpp
+SOURCES=sources/game.cpp sources/hangman.cpp
+EXECUTABLE=pendu
+OBJECTS=$(SOURCES:.cpp=.o)
 
-.SUFFIXES:
 
-all : sources/*.cpp headers/*.hpp
-	g++ sources/*.cpp -I headers -Wall -Wextra -pedantic -o pendu.out -std=c++17
+all: $(HEADERS) $(SOURCES) $(EXECUTABLE)
 
-debug : sources/*.cpp headers/*.hpp
-	g++ sources/*.cpp -I headers -Wall -Wextra -pedantic -g -o pendu.out -std=c++17
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-install : all
-	mkdir ../jeu_du_pendu
-	cp pendu.out ../jeu_du_pendu
-	cp wordlist ../jeu_du_pendu
-	echo 'Jeu du Pendu installé dans le répertoire ../jeu_du_pendu'
+.cpp.o:
+	$(CC) $(CXXFLAGS) $< -o $@
 
-uninstall :
-	rm -rvf ../jeu_du_pendu/
+debug : $(HEADERS) $(SOURCES)
+	$(CC) $(CXXFLAGS) -g -o $(EXECUTABLE)
 
+clean:
+	rm $(EXECUTABLE) $(OBJECTS)
