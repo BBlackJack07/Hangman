@@ -1,11 +1,11 @@
 CC=g++
-CXXFLAGS= -std=c++17 -Wall -O2 -march=native -I headers -c
-DEBUGFLAGS= -std=c++17 -Wall -I headers -g
+CXXFLAGS= -std=c++17 -Wall -O2 -march=native -I includes -c
+DEBUGFLAGS= -std=c++17 -Wall -I includes -g
 LDFLAGS=
-HEADERS=headers/*.hpp
-SOURCES=sources/game.cpp sources/hangman.cpp
-EXECUTABLE=pendu
+HEADERS=includes/*.hpp
+SOURCES=srcs/game.cpp srcs/hangman.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=hangman
 
 
 all: $(HEADERS) $(SOURCES) $(EXECUTABLE)

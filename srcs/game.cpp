@@ -17,7 +17,7 @@ int main()
     bool replay { true };
 
     try {
-        Hangman hangman("./wordlist");
+        Hangman hangman("res/wordlist");
         do
         {
             hangman.start_game();
